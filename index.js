@@ -1,14 +1,15 @@
 var express = require('express');
 var socket = require('socket.io');
-
+const path = require('path')
+const PORT = process.env.PORT || 5000
 //App actualizacion.
 var app = express();
-var server = app.listen(5000,function(){
+var server = app.listen(PORT, function(){
     console.log('escuchar a petición del puerto 5000'); //conexion con el puerto
 })
 
 //Archivos estaticos.
-app.use(express.static('public')); //Se conecta a la carpeta publica
+app.use(express.static(path.join(__dirname, 'public'))); //Se conecta a la carpeta publica
 
 //Actualizacion de conexiones
 var io = socket(server);
