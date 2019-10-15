@@ -3,9 +3,9 @@ var socket = require('socket.io');
 
 //App actualizacion.
 var app = express();
-var server = app.listen(4000,function(){
-    console.log('escuchar a petición del puerto 4000'); //conexion con el puerto
-});
+var server = app.listen(5000,function(){
+    console.log('escuchar a petición del puerto 5000'); //conexion con el puerto
+})
 
 //Archivos estaticos.
 app.use(express.static('public')); //Se conecta a la carpeta publica
