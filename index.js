@@ -14,6 +14,12 @@ app.use(express.static(path.join(__dirname, 'public'))); //Se conecta a la carpe
 //Actualizacion de conexiones
 var io = socket(server);
 
+
+io.configure(function () { 
+    io.set("transports", ["xhr-polling"]); 
+    io.set("polling duration", 10); 
+  });
+
 io.on('connection',(socket) => {
     console.log('Hecho conexion genial.',socket.id) //Conexion con el socket
     // evento de cabezera
